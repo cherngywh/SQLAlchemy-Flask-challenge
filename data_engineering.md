@@ -300,10 +300,6 @@ stations_data.to_csv('Resources/clean_stations.csv', index=False)
 ```
 
 
-```python
-
-```
-
 
 # Database Engineering
 ### Use SQLAlchemy to model your table schemas and create a sqlite database for the tables. Will create one table for measurements and one for stations.
