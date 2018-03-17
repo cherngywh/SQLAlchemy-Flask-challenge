@@ -1,8 +1,8 @@
 # SQLAlchemy-Flask-challenge
 
 
-# Data Engineering
-### The climate data for Hawaii is provided through two CSV files. Start by using Python and Pandas to inspect the content of these files and clean the data.
+## Data Engineering
+*The climate data for Hawaii is provided through two CSV files. Start by using Python and Pandas to inspect the content of these files and clean the data.*
 
 
 ```python
@@ -303,8 +303,8 @@ stations_data.to_csv('Resources/clean_stations.csv', index=False)
 
 
 
-# Database Engineering
-### Use SQLAlchemy to model your table schemas and create a sqlite database for the tables. Will create one table for measurements and one for stations.
+## Database Engineering
+*Use SQLAlchemy to model your table schemas and create a sqlite database for the tables. Will create one table for measurements and one for stations.*
 
 
 ```python
@@ -590,8 +590,8 @@ conn.execute("select * from Station limit 5").fetchall()
      (5, 'USC00518838', 'UPPER WAHIAWA 874.3, HI US', 21.4992, -158.0111, 306.6)]
 
 
-# Climate Analysis and Exploration
-###  Now ready to use Python and SQLAlchemy to do basic climate analysis and data exploration on the new weather station tables. All of the following analysis should be completed using SQLAlchemy ORM queries, Pandas, and Matplotlib.
+## Climate Analysis and Exploration
+*Now ready to use Python and SQLAlchemy to do basic climate analysis and data exploration on the new weather station tables. All of the following analysis should be completed using SQLAlchemy ORM queries, Pandas, and Matplotlib.*
 
 
 ```python
@@ -701,7 +701,7 @@ session = Session(bind=engine)
 
 ## Precipitation Analysis
 
-### Design a query to retrieve the last 12 months of precipitation data.
+*Design a query to retrieve the last 12 months of precipitation data.*
 
 
 ```python
@@ -712,7 +712,7 @@ precipitation = session.query(Measurement.date, func.avg(Measurement.prcp)).\
 prcp_df = pd.DataFrame(precipitation, columns=['date', 'precipitation'])
 ```
 
-### Visualize the result using the matplotlib plot and bar methods.
+*Visualize the result using the matplotlib plot and bar methods.*
 
 
 ```python
@@ -746,8 +746,8 @@ plt.show()
 
 ## Station Analysis
 
-### Design a query to calculate the total number of stations.
-- ### 9 stations
+*Design a query to calculate the total number of stations.*
+*- 9 stations*
 
 
 ```python
@@ -763,8 +763,8 @@ station_count
 
 
 
-### Design a query to find the most active stations. Which station has the highest number of observations?
-- ### WAIHEE 837.5, HI US
+*Design a query to find the most active stations. Which station has the highest number of observations?*
+*- WAIHEE 837.5, HI US*
 
 
 ```python
@@ -790,7 +790,7 @@ observation_count
 
 
 
-### Design a query to retrieve the last 12 months of temperature observation data (tobs). Filter by the station with the highest number of observations. Plot the result as histogram.
+*Design a query to retrieve the last 12 months of temperature observation data (tobs). Filter by the station with the highest number of observations. Plot the result as histogram.*
 
 
 ```python
@@ -817,7 +817,7 @@ plt.show()
 
 ## Temperature Analysis
 
-### Write a function called calc_temps that will accept a start date and end date in the format %Y-%m-%d and return the minimum, average, and maximum temperatures for that range of dates.
+*Write a function called calc_temps that will accept a start date and end date in the format %Y-%m-%d and return the minimum, average, and maximum temperatures for that range of dates.*
 
 
 ```python
@@ -832,7 +832,7 @@ def calc_temps(start_date, end_date):
     return list(np.ravel(result))
 ```
 
-### Use the calc_temps function to calculate the min, avg, and max temperatures for a trip, Plot the min, avg, and max temperature as a bar chart.
+*Use the calc_temps function to calculate the min, avg, and max temperatures for a trip, Plot the min, avg, and max temperature as a bar chart.*
 
 
 ```python
@@ -860,7 +860,7 @@ plt.show()
 
 ## Optional Recommended Analysis
 
-### Calcualte the rainfall per weather, station using the previous year's matching dates.
+*Calcualte the rainfall per weather, station using the previous year's matching dates.*
 
 
 ```python
@@ -900,7 +900,7 @@ print("Rainfall in Summer: {}\n\nRainfall in Fall: {}\n\nRainfall in Winter: {}\
     Rainfall in Spring: [('KANEOHE 838.1, HI US', 6640), ('KUALOA RANCH HEADQUARTERS 886.9, HI US', 4818), ('MANOA LYON ARBO 785.2, HI US', 5517), ('PEARL CITY, HI US', 943), ('WAIHEE 837.5, HI US', 6584), ('WAIKIKI 717.2, HI US', 6756), ('WAIMANALO EXPERIMENTAL FARM, HI US', 6074)]
 
 
-### Create a function called daily_normals that will calculate the daily normals for a specific date. 
+*Create a function called daily_normals that will calculate the daily normals for a specific date.*
 
 
 ```python
@@ -921,7 +921,7 @@ def daily_normals(date):
     return temp_list
 ```
 
-### Use Pandas to create dataframe and plot an area plot for the daily normals.
+*Use Pandas to create dataframe and plot an area plot for the daily normals.*
 
 
 ```python
@@ -1076,7 +1076,7 @@ plt.show()
 
 
 ## Climate App
-###  Design a Flask api based on the queries that I have just developed.
+*Design a Flask api based on the queries that I have just developed.*
 
 
 ```python
